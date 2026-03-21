@@ -1,20 +1,17 @@
 <?php
-declare(strict_types= 1);
 
 
-class User {
-    public function __construct(
-        public string $name,
-        public string $email,
-    ) {}
+class User
+{
+    public $name;
+    public $age;
+    public function __construct(string $name, string $age)
+    {
+        $this->name = $name;
+        $this->age = $age;
+
+    }
 }
 
-function sendEmail(User $user, string $message): void {
-    // Simulate sending an email
-    echo "Sending email to {$user->email}: {$message}\n";
-}
 
-
-$user = new User("John Doe", "john.doe@example.com");
-sendEmail($user, "Hello, this is a test email.");
-?>
+$user = new User("John Doe", "30");
