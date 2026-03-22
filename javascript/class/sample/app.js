@@ -1,22 +1,22 @@
-const express = require('express');
-const Database = require('./db');
-const User = require('./db-user.js');
-const app = express();
-app.use(express.json());
+class User {
+  #bankBalance = 0;
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
 
-const createApp = async () => {
-  const db = new Database();
-  const dbConnection = await db.connect(['users', 'orders', 'products']);
+  getInfo() {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  }
 
-  const user = dbConnection.getCollection('users');
+  addToBankBalance(amount) {
+    this.#bankBalance += amount;
+  }
 
-  app.get('/users', async (req, res) => {
-    const users = await user.find().toArray();
-    res.json(users);
-  });
-};
+  getBankBalance() {
+    return this.#bankBalance;
+  }
+}
 
-app.listen(3000, async () => {
-  await createApp();
-  console.log('Server is running on port 3000');
-});
+const user1 = new User('Alice', 30);
+user1.addToBankBalance(1000);

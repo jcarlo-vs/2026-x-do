@@ -12,4 +12,12 @@ coverage/
 *.tmp
 *.swp
 *.swo
-*.zip       
+*.zip
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
