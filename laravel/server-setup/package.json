@@ -1,0 +1,13 @@
+{
+  "name": "server-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec \"php -d xdebug.mode=off app.php\" --ext php,json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
